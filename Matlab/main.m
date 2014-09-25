@@ -4,12 +4,6 @@ r = 2;
 
 vnum = 50; % number of vertices (around bottom edge)
 fnum = 2 + vnum; % top and bottom + sides
-angle = 360/vnum; % angle for vertices
-
-for i=1:vnum
-    Vertices(i,:) = [r*cosd((i-1)*angle), r*sind((i-1)*angle), 0]; % lower
-    Vertices(i+vnum,:) = [r*cosd((i-1)*angle), r*sind((i-1)*angle), h]; % upper
-end
 
 faces = zeros(fnum,vnum);
 for i=1:vnum-1 % sides
