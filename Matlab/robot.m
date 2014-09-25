@@ -1,31 +1,34 @@
-%% This is a first try
+%% The cylinder
 
 clear; close all;
 r = 1; % radius
 h = 2; % height
+vnum = 50; % number of vertices (around top and bottom edges)
+fnum = 2 + vnum % top and bottom + sides
+angle = 360/vnum; % angle for vertices
 
 
 % define vertices
-for i=1:12
-    vert_link1(i,:) = [r*cosd((i-1)*30) r*sind((i-1)*30) 0]; % lower
-    vert_link1(i+12,:) = [r*cosd((i-1)*30) r*sind((i-1)*30) h]; % upper
+for i=1:vnum
+    vert_link1(i,:) = [r*cosd((i-1)*angle), r*sind((i-1)*angle), 0]; % lower
+    vert_link1(i+vnum,:) = [r*cosd((i-1)*angle), r*sind((i-1)*angle), h]; % upper
 end
 
 % define faces
 
-face_link1 = zeros(14,12);
-for i=1:11 % sides
-    face_link1(i,[1:4]) = [i i+1 i+13 i+12]; 
+face_link1 = zeros(fnum,vnum);
+for i=1:vnum-1 % sides
+    face_link1(i,[1:4]) = [i, i+1, i+1+vnum, i+vnum]; 
     face_link1(i,[5:end]) = NaN;
 end
-face_link1(12,[1:4]) = [12 1 13 24]; face_link1(12,[5:end]) = NaN;
+face_link1(vnum,[1:4]) = [vnum 1 vnum+1 vnum*2]; face_link1(vnum,[5:end]) = NaN;
 
-face_link1(13,:) = 1:12; % bottom
-face_link1(14,:) = 13:24; % top
+face_link1(vnum+1,:) = 1:vnum; % bottom
+face_link1(vnum+2,:) = vnum+1:vnum*2; % top
 
 
-patch('Vertices',vert_link1,'Faces',face_link1,'faceColor','b','EdgeColor','k', 'FaceLighting','gouraud')
+patch('Vertices',vert_link1,'Faces',face_link1,'faceColor','b','EdgeColor','b', 'FaceLighting','flat')
 set(gcf, 'Renderer', 'zbuffer');
-light;
+camlight;
 
 axis([-2 2 -2 2]);
