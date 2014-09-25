@@ -4,7 +4,7 @@ clear; close all;
 r = 1; % radius
 h = 2; % height
 vnum = 50; % number of vertices (around top and bottom edges)
-fnum = 2 + vnum % top and bottom + sides
+fnum = 2 + vnum; % top and bottom + sides
 angle = 360/vnum; % angle for vertices
 
 
