@@ -1,9 +1,9 @@
 classdef Servo < Component
 %SERVO This is a servo from the Lynx robot
     properties
-        mW = 2
-        mH = 2
-        mL = 4
+        mW
+        mH
+        mL
         mVnum = 4 % 4 on bottom
     end
     
@@ -33,6 +33,11 @@ classdef Servo < Component
                      1 2 3 4
                      5 6 7 8];
         end
+        
+        function obj = set.mVertices(obj,x)
+            mVertices(:,1) = obj.mVertices(:,1) + x;
+        end
+        
         
         % class constructor
         function obj = Servo(w,h,l)
