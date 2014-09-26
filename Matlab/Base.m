@@ -1,8 +1,8 @@
-classdef Base
+classdef Base < Component
 %BASE This is the base of the Lynx robot arm
-    properties (Constant)
-        mR = 5
-        mH = 5
+    properties
+        mR 
+        mH
         mVnum = 50 % 50 vertices on bottom
     end
     
@@ -36,12 +36,12 @@ classdef Base
             mFaces(obj.mVnum+2,:) = obj.mVnum+1:obj.mVnum*2; % top
         end
         
-        function build(obj)
-            patch('Vertices',obj.mVertices,'Faces',obj.mFaces,'faceColor','b','EdgeColor','b',...
-                  'FaceLighting','flat');
-            set(gcf, 'Renderer', 'zbuffer');
-            camlight();
-            axis normal;
+            % class constructor
+        function obj = Base(r,h)
+            obj.mR = r;
+            obj.mH = h;
         end
     end
+    
+
 end

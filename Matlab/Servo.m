@@ -1,4 +1,4 @@
-classdef Servo
+classdef Servo < Component
 %SERVO This is a servo from the Lynx robot
     properties
         mW = 2
@@ -33,14 +33,6 @@ classdef Servo
                      1 2 3 4
                      5 6 7 8];
         end
-        
-        function build(obj)
-            patch('Vertices',obj.mVertices,'Faces',obj.mFaces,'faceColor','b','EdgeColor','b',...
-                  'FaceLighting','flat');
-            set(gcf, 'Renderer', 'zbuffer');
-            camlight();
-            axis normal;
-        end        
         
         % class constructor
         function obj = Servo(w,h,l)
