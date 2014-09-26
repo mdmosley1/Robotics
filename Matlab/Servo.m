@@ -2,20 +2,8 @@ classdef Servo < Component
 %SERVO This is a servo from the Lynx robot
     properties
         mVnum = 4 % 4 on bottom
-        mVertices
-        mFaces
     end
     
-    properties (Dependent = true)
-
-    end
-
-    methods
-        % getter methods for dependent properties
-        
-        function mVertices = get.mVertices(obj)
-            
-        end
         
         function mFaces = get.mFaces(obj)
             mFaces = [1 2 6 5

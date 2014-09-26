@@ -1,9 +1,9 @@
 classdef Component
 %COMPONENT This is general class for the various components of the Lynx robot arm
         
-    % properties (Abstract)
-    %     mVertices,mFaces,angle
-    % end
+    properties
+        mVertices,mFaces
+    end
     
     methods 
         function build(obj)
