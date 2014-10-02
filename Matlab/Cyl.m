@@ -1,12 +1,12 @@
-classdef Base < Component
-% BASE This is the base of the Lynx robot arm
+classdef Cyl < Component
+% CYL This is the Cyl of the Lynx robot arm
     properties
         mR, mH, mAngle, 
     end
     
     methods
         % class constructor
-        function obj = Base(r,h)
+        function obj = Cyl(r,h)
             obj.mR = r;
             obj.mH = h;
             obj.mVnum = 50; % 50 vertices on bottom
