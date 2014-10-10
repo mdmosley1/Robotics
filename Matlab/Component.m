@@ -14,10 +14,10 @@ classdef Component < handle
             axis normal;
         end
         
-        function obj = translate(obj,x,y,z)
-            obj.mVertices(:,1) = obj.mVertices(:,1) + x;
-            obj.mVertices(:,2) = obj.mVertices(:,2) + y;
-            obj.mVertices(:,3) = obj.mVertices(:,3) + z;
+        function obj = translate(obj,t)
+            obj.mVertices(:,1) = obj.mVertices(:,1) + t(1);
+            obj.mVertices(:,2) = obj.mVertices(:,2) + t(2);
+            obj.mVertices(:,3) = obj.mVertices(:,3) + t(3);
             obj.updateFaces();
         end
         
