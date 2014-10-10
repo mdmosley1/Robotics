@@ -15,4 +15,6 @@ servo2 = Block(serDim); servo2.translate(ser2Pos);servo2.build('g');
 bicep1 = Block(bicDim); bicep1.translate(bic1Pos); bicep1.build('r');%bicep1(translate)
 bicep2 = Block(bicDim); bicep2.translate(bic2Pos); bicep2.build('r');%bicep1(translate)
 
+servo3 = Block(serDim); servo3.translate(ser3Pos); servo3.build('g');
+
 daspect([max(daspect)*[1 1 1]]);
