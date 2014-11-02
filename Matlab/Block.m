@@ -1,7 +1,7 @@
 classdef Block < Component
 % SERVO This is a servo from the Lynx robot
     properties
-        mX,mY,mZ
+        mX,mY,mZ,pos
     end
 
     methods    
@@ -22,5 +22,7 @@ classdef Block < Component
                              0 obj.mY obj.mZ];
             obj.updateFaces();
         end
+        
+        
     end
 end

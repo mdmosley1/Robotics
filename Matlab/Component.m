@@ -1,8 +1,7 @@
-classdef Component < handle
-%COMPONENT This is general class for the various components of the Lynx robot arm
-    
+classdef Component < handle & matlab.mixin.Heterogeneous
+% COMPONENT This is general class for the various components of the Lynx robot arm
     properties
-        mVertices,mFaces,mVnum
+        mVertices,mFaces,mVnum,joint,name
     end
     
     methods 
@@ -31,6 +30,21 @@ classdef Component < handle
             obj.mFaces(obj.mVnum,[5:end]) = NaN;
             obj.mFaces(obj.mVnum+1,:) = 1:obj.mVnum; % bottom
             obj.mFaces(obj.mVnum+2,:) = obj.mVnum+1:obj.mVnum*2; % top
+        end
+        
+        function obj = rotate(obj,t)
+            Rx = [1 0 0;
+                  0 cosd(t(1)) -sind(t(1));
+                  0 sind(t(1)) cosd(t(1))];
+            Ry = [cosd(t(2)) 0 sind(t(2));
+                 0 1 0;
+                 -sind(t(2)) 0 cosd(t(2))];
+            Rz = [cosd(t(3)) -sind(t(3)) 0;
+                 sind(t(3)) cosd(t(3)) 0
+                 0 0 1];
+            R = Rx*Ry*Rz;
+            obj.mVertices = obj.mVertices*R;
+            obj.updateFaces();
         end
     end
 end
