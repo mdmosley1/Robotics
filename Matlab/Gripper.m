@@ -1,7 +1,7 @@
 classdef Gripper < Component
 % GRIPPER This is a servo from the Lynx robot
     properties
-        name,pos
+        pos
         joint = [2.3,2.3,0];
     end
 

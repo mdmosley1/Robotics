@@ -1,7 +1,7 @@
 classdef Component < handle & matlab.mixin.Heterogeneous
 % COMPONENT This is general class for the various components of the Lynx robot arm
     properties
-        mVertices,mFaces,mVnum,joint,name
+        mVertices,mFaces,mVnum,name
     end
     
     methods 

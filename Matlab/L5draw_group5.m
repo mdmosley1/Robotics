@@ -75,17 +75,17 @@ function L5draw_group5 (jc,grip)
     for i = 1:22
         % translate everyting after servo4 to origin, rotate and then translate back
         array(i+10).translate(-wrist1Pos-bicOffset);
-        array(i+10).rotate([jc(4) 0 0]);
+        array(i+10).rotate([-jc(4) 0 0]);
         array(i+10).translate(+wrist1Pos+bicOffset);
         
         % translate everything after servo3 to origin, rotate and then translate back
         array(i+6).translate(-ser3Pos-ser3Offset);
-        array(i+6).rotate([jc(3) 0 0]);
+        array(i+6).rotate([-jc(3) 0 0]);
         array(i+6).translate(ser3Pos+ser3Offset);
         
         % translate everything after and including bicep1 back to origin, rotate, and then translate back
         array(i+4).translate(-bic1Pos-bicOffset);
-        array(i+4).rotate([jc(2) 0 0]);
+        array(i+4).rotate([-jc(2) 0 0]);
         array(i+4).translate(bic1Pos + bicOffset);
         
         % translate everything after base1 back to origin, rotate, and then translate back
